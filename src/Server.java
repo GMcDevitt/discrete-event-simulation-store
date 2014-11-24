@@ -2,7 +2,7 @@
 /**
  * Server used to simulate processing an event.
  *
- * @author Gerard
+ * @author Gerard McDevitt, Jackie Plum
  */
 public class Server {
 

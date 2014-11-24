@@ -1,6 +1,8 @@
 /**
  * Main method used to test the custom made Linked List class
  * Made using IntelliJ Idea 14
+ *
+ * @author Gerard McDevitt, Jackie Plum
  */
 public class TestLinkedList {
 

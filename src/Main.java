@@ -1,7 +1,7 @@
 /**
  * Class used to for a discrete event simulation of 100 events
  * Written by Gerard McDevitt and Jackie Plum using IntelliJ Idea 14 Ultimate
- * @author Gerard
+ * @author Gerard McDevitt, Jackie Plum
  */
 public class Main {
 
