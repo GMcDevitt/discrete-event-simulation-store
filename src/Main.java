@@ -56,7 +56,7 @@ public class Main {
             //If the event is an arrival
             if (nextFromEventList.isArrival()) {
                 //If the server is not busy
-                if (! server.hasEvent()) {
+                if (!server.hasEvent()) {
                     //Add the event to the server
                     server.setCurrentEvent(nextFromEventList);
                     //Update the server's event with a new departure time
