@@ -8,16 +8,11 @@ public class Main {
     public static void main(String[] args) {
 
         //The time of the previous pass in the simulation.
-        int previousClock = 0;
-        //The longest line length, wait time and service time
+        int previousClock;
+        //The longest line length, server idle time and service time
         int lineLength = 0;
-        int waitTime = 0;
+        int idleTime = 0;
         int longestService = 0;
-        //The shortest service time and the average service time
-        int shortestService = 0;
-        int averageService = 0;
-        //Array of all the service times in the simulation (used to calculate the average service time)
-        int[] serviceTimes = new int[100];
 
 
         //List used to hold the 100 events;
@@ -44,17 +39,9 @@ public class Main {
             eventList.add(event);
         }
 
-        //Create the last event for the list
-        LinkedList.Event lastEvent = new LinkedList.Event(true);
-        //Set the time of the last event for sorting purposes
-        lastEvent.setTime(clock + RandomForSimulations.getPoisson(5));
-        //Add the last event with isLast set to true;
-        eventList.add(lastEvent);
-
         /** Begin Simulation */
 
-        //While there are events in the list and the first node is not marked to end the loop
-        int i = 0;
+        //While there are events in the list...
         while (eventList.size() != 0) {
 
             //Get the next event
@@ -124,9 +111,6 @@ public class Main {
                     if(longestService < nextFromEventList.getTime() - previousClock) {
                         longestService = nextFromEventList.getTime() - previousClock;
                     }
-
-                    serviceTimes[i] = nextFromEventList.getTime() - previousClock;
-                    i++;
                 }
             }
             //Getting the statistics about the simulation
@@ -134,17 +118,17 @@ public class Main {
             if(lineLength < serviceQueue.size()) {
                 lineLength = serviceQueue.size();
             }
-        }
 
-
-        System.out.printf("The longest the line got was %s", lineLength);
-        System.out.printf("The longest service time was %s", longestService);
-        int average = 0;
-        //Calculate the average service time
-        for (i = 0; i < 100; i++) {
-            average = + serviceTimes[i];
+            //Calculate the idle time
+            //If the server does not have a customer, it is idle
+            if(!server.hasEvent()) {
+            idleTime = idleTime + (clock - previousClock);
+            }
         }
-        System.out.printf("The average service time was %s", average/100);
+        //Statistics reporting
+        System.out.printf("The longest the line got was %s customers \n", lineLength);
+        System.out.printf("The longest service time was %s minutes \n", longestService);
+        System.out.printf("The Server was idle for %s minutes \n", idleTime);
 
     }
 }
