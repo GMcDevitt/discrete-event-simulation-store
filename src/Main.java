@@ -1,19 +1,19 @@
 /**
- * Class used to for a discrete event simulation of 100 events
+ * Class used for a discrete event simulation of 100 events.
  * Written by Gerard McDevitt and Jackie Plum using IntelliJ Idea 14 Ultimate
  * @author Gerard McDevitt, Jackie Plum
  */
 public class Main {
 
     public static void main(String[] args) {
-
+        //Clock used to track the time of events
+        int clock = 0;
         //The time of the previous pass in the simulation.
         int previousClock;
         //The longest line length, server idle time and service time
         int lineLength = 0;
         int idleTime = 0;
         int longestService = 0;
-
 
         //List used to hold the 100 events;
         LinkedList eventList = new LinkedList();
@@ -23,8 +23,6 @@ public class Main {
         Server server = new Server();
         //Next event pulled from the linked list.
         LinkedList.Event nextFromEventList;
-        //Clock used to track the time of events
-        int clock = 0;
 
         //Load 100 events
         for (int i = 0; i < 100; i++) {
@@ -43,7 +41,6 @@ public class Main {
 
         //While there are events in the list...
         while (eventList.size() != 0) {
-
             //Get the next event
             nextFromEventList = eventList.getFirst();
             //Remove it from the list
@@ -80,7 +77,6 @@ public class Main {
                     serviceQueue.add(nextFromEventList);
                 }
             }
-
             //Otherwise its a departure.
             else {
                 //Remove the event from the server
@@ -108,20 +104,19 @@ public class Main {
                         }
                     }
                     //If the service time for the customer was longer than the previous maximum
-                    if(longestService < nextFromEventList.getTime() - previousClock) {
+                    if (longestService < nextFromEventList.getTime() - previousClock) {
                         longestService = nextFromEventList.getTime() - previousClock;
                     }
                 }
             }
             //Getting the statistics about the simulation
             //If the service queue's max length got bigger
-            if(lineLength < serviceQueue.size()) {
+            if (lineLength < serviceQueue.size()) {
                 lineLength = serviceQueue.size();
             }
-
             //Calculate the idle time
             //If the server does not have a customer, it is idle
-            if(!server.hasEvent()) {
+            if (!server.hasEvent()) {
             idleTime = idleTime + (clock - previousClock);
             }
         }

@@ -29,7 +29,6 @@ public class TestLinkedList {
         System.out.println("The middle item should be 8 and is: " + linkedList.get(7).toString());
         System.out.println("The lastNode item should be 16 and is: " + linkedList.getLast().toString());
 
-
         //Print out my list
         for(int i = 0; i < linkedList.size(); i++){
             System.out.println(linkedList.get(i).toString());
@@ -39,7 +38,6 @@ public class TestLinkedList {
         linkedList.removeFirst();
 
         System.out.println("The firstNode item should now be 2 and is: " + linkedList.getFirst().toString());
-
 
         //Remove the lastNode item
         linkedList.removeLast();
@@ -61,7 +59,6 @@ public class TestLinkedList {
         linkedList.removeLast();
 
         System.out.println("Does the list contain harold? (it shouldn't): " + linkedList.contains(harold));
-
 
         //Check the size method
         System.out.println("The list should have 14 items: " + linkedList.size());

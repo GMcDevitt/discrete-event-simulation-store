@@ -9,7 +9,6 @@ import java.util.NoSuchElementException;
  */
 
 public class LinkedList {
-
     //Points to the first node
     Node firstNode;
     //Points to the last node
@@ -17,13 +16,10 @@ public class LinkedList {
     //The size of the list
     private int size = 0;
 
-
-
     /**
      * A node to contain a single Event used in the LinkedList
      */
     public class Node {
-
         //The integer inside of the node
         private Event item;
         //The next node in succession
@@ -81,8 +77,6 @@ public class LinkedList {
             this.time = time;
         }
 
-
-
         /**
          * Sets the event as a departure.
          * Also updates the time of an event by adding a new randomly generated time to the old time.
@@ -102,7 +96,6 @@ public class LinkedList {
             return last;
         }
     }
-
 
     /**
      * Links the first element of the list
@@ -146,7 +139,6 @@ public class LinkedList {
         size++;
     }
 
-
     /**
      * Unlinks the first node in the list
      */
@@ -186,7 +178,6 @@ public class LinkedList {
         }
         size--;
     }
-
 
     /**
      * Returns the first element in the list
@@ -237,7 +228,6 @@ public class LinkedList {
         //Call unlinkLast to unlink the node
         unlinkLast(l);
     }
-
 
     /**
      * Adds a node to the beginning of the list
